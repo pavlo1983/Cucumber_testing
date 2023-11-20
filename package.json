@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "test": "cucumber-js -f @cucumber/pretty-formatter"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1"
+  },
+  "dependencies": {
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "assert": "^2.1.0",
+    "axios": "^1.6.2",
+    "gitignore": "^0.7.0"
+  }
+}
