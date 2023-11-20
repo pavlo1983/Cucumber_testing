@@ -1,3 +1,4 @@
+@title_episode
 Feature: Verify that the “title” field in “episode”
   Check that the “title” field in “episode”, is never null or empty(“”) for any schedule item
 

@@ -1,3 +1,4 @@
+@date
 Feature: Verify the “Date” value 
   Check the “Date” value in the response headers
 

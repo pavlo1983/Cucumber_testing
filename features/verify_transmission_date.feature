@@ -1,3 +1,4 @@
+@transmission
 Feature: Verify the “transmission_start” date and “transmission_end” date 
   Check that the “transmission_start” date value is before the “transmission_end” date
 

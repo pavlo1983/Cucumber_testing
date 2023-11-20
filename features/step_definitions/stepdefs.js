@@ -2,8 +2,7 @@ const assert = require('assert');
 const { Given, When, Then } = require('@cucumber/cucumber');
 const axios = require('axios');
 
-let apiUrl, response, err;
-let startTime = new Date().getTime();
+let apiUrl, response, err, startTime;
 
 // //// Before each feature ///////////////////////////////////////
 
@@ -12,6 +11,7 @@ Given('I have an API endpoint {string}', function (endpoint) {
 });
 
 When('I send a GET request', async function () {
+  startTime = new Date().getTime();
   response = await axios.get(apiUrl)
   .then(response)
   .catch(error => {
@@ -29,9 +29,13 @@ When('I send a GET request', async function () {
 
 // //// Scenario 1 ///////////////////////////////////////
 
+//@response_code
+
 Then('the response status code should be {int}', function (statusCode) {
   assert.strictEqual(response.status, statusCode, `Response status code is ${response.status}`)
 });
+
+//@response_time
 
 Then('the response time of the request is below {int} milliseconds', function (threshold) {
   const endTime = new Date().getTime();
@@ -41,6 +45,8 @@ Then('the response time of the request is below {int} milliseconds', function (t
 
 // //// Scenario 2 ///////////////////////////////////////
 
+// @id
+
 Then('the “id” field is never {string} or empty\\(“”) for all items present in the data array', function (value) {
   for (let i=0; i < response.data.schedule.elements.length; i++) {
     let string = response.data.schedule.elements[i].id;
@@ -48,6 +54,8 @@ Then('the “id” field is never {string} or empty\\(“”) for all items pres
     assert.ok(string.length !== 0, `${string} in ${i+1} element is empty`);
   }
 });
+
+// @type_episode
 
 Then('the “type” in “episode” for every item is always {string}', function (title) {
   for (let i=0; i < response.data.schedule.elements.length; i++) {
@@ -58,6 +66,8 @@ Then('the “type” in “episode” for every item is always {string}', functi
 
 // //// Scenario 3 ///////////////////////////////////////
 
+// @title_episode
+
 Then('the “title” field in “episode”, is never {string} or empty\\(“”) for any schedule item', function (value) {
   for (let i=0; i < response.data.schedule.elements.length; i++) {
     let string = response.data.schedule.elements[i].episode["title"];
@@ -67,6 +77,8 @@ Then('the “title” field in “episode”, is never {string} or empty\\(“�
 });
 
 // //// Scenario 4 ///////////////////////////////////////
+
+// @live
 
 Then('the only one episode in the list has "{string}" field in “episode” as true', function (broadcasting) {
   const liveArray = [];
@@ -81,6 +93,8 @@ Then('the only one episode in the list has "{string}" field in “episode” as 
 
 // //// Scenario 5 ///////////////////////////////////////
 
+// @transmission
+
 Then('the “transmission_start” date value is before the “transmission_end” date', function () {
   for (let i=0; i < response.data.schedule.elements.length; i++) {
     let startDate = response.data.schedule.elements[i].transmission_start;
@@ -91,6 +105,8 @@ Then('the “transmission_start” date value is before the “transmission_end�
 
 // //// Scenario 6 ///////////////////////////////////////
 
+// @date
+
 Then('the response headers, verify the “Date” value in range of {int} milliseconds', function(range) {
   let currentDate = new Date().getTime();
   let headersDate = new Date(response.headers.date);
@@ -100,9 +116,13 @@ Then('the response headers, verify the “Date” value in range of {int} millis
 
 // //// Scenario 7 ///////////////////////////////////////
 
+// @response_error_code
+
 Then('the HTTP status code of the response is {int}', function(statusCode) {
   assert.strictEqual(err.status, statusCode, `Response status code is ${err.status}`);
 });
+
+// @response_error_properties
  
 Then('the error object had the properties {string} and {string}', function(firstProperty, secondProperty) {
   let keys = Object.keys(err.data.error);

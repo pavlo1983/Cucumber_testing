@@ -1,3 +1,4 @@
+@live
 Feature: Verify “live” field in “episode”
   Check that only one episode in the list has “live” field in “episode” as true
 

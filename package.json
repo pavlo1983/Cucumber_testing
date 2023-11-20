@@ -1,6 +1,16 @@
 {
   "scripts": {
-    "test": "cucumber-js -f @cucumber/pretty-formatter"
+    "test": "cucumber-js -f @cucumber/pretty-formatter",
+    "response_code": "cucumber-js --tags @response_code -f @cucumber/pretty-formatter",
+    "response_time": "cucumber-js --tags @response_time -f @cucumber/pretty-formatter",
+    "verify_id": "cucumber-js --tags @id -f @cucumber/pretty-formatter",
+    "verify_type_episode": "cucumber-js --tags @type_episode -f @cucumber/pretty-formatter",
+    "verify_title_episode": "cucumber-js --tags @title_episode -f @cucumber/pretty-formatter",
+    "verify_live_episode": "cucumber-js --tags @live -f @cucumber/pretty-formatter",
+    "verify_transmission_date": "cucumber-js --tags @transmission -f @cucumber/pretty-formatter",
+    "verify_date_headers": "cucumber-js --tags @date -f @cucumber/pretty-formatter",
+    "response_code_error": "cucumber-js --tags @response_error_code -f @cucumber/pretty-formatter",
+    "response_error_properties": "cucumber-js --tags @response_error_properties -f @cucumber/pretty-formatter"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1"
