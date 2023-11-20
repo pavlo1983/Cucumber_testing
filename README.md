@@ -20,6 +20,8 @@ npm test
 
 To run defined test please use command:
 
-npm run <command>
+npm run "command"
 
-<command> is defined test in package.json file in "scripts" object
+"command" is defined test in package.json file in "scripts" object
+
+For example: npm run response_code 
