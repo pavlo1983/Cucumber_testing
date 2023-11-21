@@ -10,7 +10,14 @@
     "verify_transmission_date": "cucumber-js --tags @transmission -f @cucumber/pretty-formatter",
     "verify_date_headers": "cucumber-js --tags @date -f @cucumber/pretty-formatter",
     "response_code_error": "cucumber-js --tags @response_error_code -f @cucumber/pretty-formatter",
-    "response_error_properties": "cucumber-js --tags @response_error_properties -f @cucumber/pretty-formatter"
+    "response_error_properties": "cucumber-js --tags @response_error_properties -f @cucumber/pretty-formatter",
+    "scenario1": "cucumber-js --tags @scenario1 -f @cucumber/pretty-formatter",
+    "scenario2": "cucumber-js --tags @scenario2 -f @cucumber/pretty-formatter",
+    "scenario3": "cucumber-js --tags @scenario3 -f @cucumber/pretty-formatter",
+    "scenario4": "cucumber-js --tags @scenario4 -f @cucumber/pretty-formatter",
+    "scenario5": "cucumber-js --tags @scenario5 -f @cucumber/pretty-formatter",
+    "scenario6": "cucumber-js --tags @scenario6 -f @cucumber/pretty-formatter",
+    "scenario7": "cucumber-js --tags @scenario7 -f @cucumber/pretty-formatter"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1"
